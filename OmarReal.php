@@ -269,8 +269,8 @@ sendmark($chatId, "وداعا عزيزي 🌝☘ : " . "[$nam](https://t.me/$use
 		}
      
      
-    function sendmark ($chatId, $message, $reply){
-    $url = $GLOBALS[website].'/sendMessage?chat_id='.$chatId.'&parse_mode=Markdown'.'&text='.urlencode($message).'reply_to_message_id='.$memb.'&disable_web_page_preview=true';
+    function sendmark ($chatId, $message, $memb){
+    $url = $GLOBALS[website].'/sendMessage?chat_id='.$chatId.'&parse_mode=Markdown'.'&text='.urlencode($message).'&reply_to_message_id='.$memb.'&disable_web_page_preview=true';
     file_get_contents($url);
      }
      
