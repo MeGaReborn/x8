@@ -148,15 +148,6 @@ sendMessage($for, $fwd3);
 
 $shit = explode(".", $message);
 
-
-if ($shit[0] == "كلة"){
-sendmark($chatId, "$shit[1] " ,$replay);
-}
-
-if ($reply && $message == "هينة"){
-real($chatId, "دي زبالة" , $replay);
-}
-
 $matches = explode(".", $message); // Group id and msg / ايدي المجموعة او القناة + الرسالة سيرسلها البووت 
 
 if($message){
