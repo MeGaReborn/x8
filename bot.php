@@ -1,8 +1,8 @@
 <?php
 $botToken = "300049013:AAF7rMGcjvYIYcOjTgX8LgarAuGbr9NvkLI"; // توكن
 $website = "https://api.telegram.org/bot".$botToken;
-$sudo_id = 325384922;// ايدي المطور
-$bot_id = 300049013; // ايدي البوت 
+$sudo_id = 325384922;// ایدی سودو
+$bot_id = 300049013; // ایدی بوت  
 $update = file_get_contents('php://input');
 $update = json_decode($update, TRUE);
 $chatId = $update["message"]["chat"]["id"];
@@ -60,11 +60,11 @@ $file4 = "twasl.php";
 
 
 if ($message == "/setsudo" && $for == $sudo_id){
-sendmark($chatId, "تم ✅ تفعيل استقبال الرسائل الى المطور 📩🔹" , $memb);
+sendmark($chatId, "done" , $memb);
 }
 
 if ($message == "/setchat" && $for == $sudo_id){
-sendmark($chatId, "تم ✅ تفعيل هاذه المجموعة لاستقبال الرسائل 📩🔹 " , $memb);
+sendmark($chatId, "done " , $memb);
 }
 
 if ($message == "/setchat" && $for == $sudo_id){
@@ -85,7 +85,7 @@ file_put_contents($file, "<?php");
 }
 
 if ($message == "/remall"){
-sendmark ($chatId, "تم ✅ ازالة جميع الادمنية 🕴🔸",$memb);
+sendmark ($chatId, "از لیست مدیریتی خارج شد",$memb);
 }
 
 if($reply && $message == "/promote" && $for == $sudo_id){
@@ -93,7 +93,7 @@ file_put_contents($file, "\n" . '$ids[] = ' . $replay . ";" ,FILE_APPEND);
 }
 
 if($message == "/add" && $for != $sudo_id){
-sendmark($chatId, "عذرا ❗️هذا الامر للمطورين فقط 🕴🔹" , $memb);
+sendmark($chatId, "done" , $memb);
 }
 
 if($message == "/add" && $for == $sudo_id){
@@ -101,16 +101,16 @@ file_put_contents($file2, "\n" . '$gpid[] = ' . $chatId . ";",FILE_APPEND);
 }
 
 if($message == "/add" && $for == $sudo_id){
-sendmark($chatId, "تم ✅ تفعيل المجموعة 🍂" , $memb);
+sendmark($chatId, "ربات ادد شد" , $memb);
 }
 
 if ($reply && $message == "/promote" && $for == $sudo_id){
-sendmark($chatId, "العضو 👤 تم اضافته ادمن ✅ : "."[$replay_name](https://t.me/$replay_user)",$memb);
+sendmark($chatId, "کاربر پرموت شد : "."[$replay_name](https://t.me/$replay_user)",$memb);
 }
 
 
 if($number > 100 && $for != $sudo_id or $numper > 1000 && $for != $sudo_id){
-sendmark($chatId, "لا ❗️ترسل اكثر من 100 كلمة 🗒🔒 " . "\nسيد ❄️ @" . "[$nam](https://t.me/$user)" );
+sendmark($chatId, "حداقل 100 " . "\nسيد ❄️ @" . "[$nam](https://t.me/$user)" );
 }
 	 
 
@@ -124,7 +124,7 @@ forwardMessage($twasl[0] ,$chatId, $memb);
 
 if ($sticker && $type == "private"){
 forwardMessage($twasl[0],$chatId,$memb);
-sendMessage($twasl[0], "الملصق بواسطت ☘ :  @" . $user);
+sendMessage($twasl[0], "done :  @" . $user);
 }
 
 if ($message && $fwdrep){
@@ -133,7 +133,7 @@ sendMessage($fwdrep, " $message " );
 
 
 $shit = explode(".", $message);
-$matches = explode(".", $message); // Group id and msg / ايدي المجموعة او القناة + الرسالة سيرسلها البووت 
+$matches = explode(".", $message); // Group id and msg / done
 
 if($message){
 sendmark($matches[0], "$matches[1]");
@@ -148,108 +148,108 @@ sendmark($chatId, "_💡Id_ : " . $replay . "\n_💡User_ : " . "[$replay_name](
 }
 
 if ($nm && in_array($chatId,$gpid)){
-sendmark($chatId, "*🔥اهلا عزيزي *\n[💡تابع جديدنا](https://t.me/set_web)🍂 ",$memb);
+sendmark($chatId, "*🔥done *\n[💡done](https://t.me/botreborn_ch)🍂 ",$memb);
 }
 
 if($message == "/me" and $for == $sudo_id && $type == "supergroup" && in_array($chatId,$gpid)){
-sendmark($chatId, "انت ♦️ مطور البوت 🕴 : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "مشخصات من:| 🕴 : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 elseif($message == "/me" && $type == "private"){
-sendMessage($chatId, "عذرا 🍂 هذا الامر في المجموعات فقط 👥❇️");
+sendMessage($chatId, "با عرض پوزش 🍂 این در همه گروه ها 👥❇️");
 }
 
 if($message == "/me" && in_array($for,$ids) && $type == "supergroup" && $for != $sudo_id){
-sendmark($chatId, "انت ☘ ادمن في البوت 🤖❄️ : " . "[$nam](https://t.me/$user)" , $memb);
+sendmark($chatId, "شما معتاد ☘ در ربات 🤖❄️ : " . "[$nam](https://t.me/$user)" , $memb);
 }
 
 if($message == "/me" and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "انت ♦️ مجرد عضو 👤 : " . "[$nam](https://telegram.me/$user)",$memb);
+sendmark($chatId, "شما عضو مجرد 👤 : " . "[$nam](https://telegram.me/$user)",$memb);
 }
 
 if($location and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال المواقع 🏝🔒   " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوع ارسال سایت🏝🔒   " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($game and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 لعب الالعاب 🕹🔒  : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوع ارسال بازی 🕹🔒  : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($song and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال الاغاني 🎵🔒  : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوع ارسال اهنگ 🎵🔒  : " . "[$nam](https://t.me/$user)",$memb);
 }
 
-if($message == "نوع المجموعة" && $type == "supergroup" && in_array($chatId,$gpid)){
-sendMessage($chatId, "نوع 📛 المجموعة 👥 : " . $type); 
+if($message == "نوع گروه" && $type == "supergroup" && in_array($chatId,$gpid)){
+sendMessage($chatId, "نوع گروه 👥 : " . $type); 
 }
 
-if($message == "عدد الرسائل" && $memb > 1000 && $type == "supergroup" && in_array($chatId,$gpid)){
-sendmark($chatId, "عدد 📈 رسائل المجموعة 👥🔹  : " . "*$memb*" . "\nتهانيا 💡 مجموعتك متفاعلة 💯 ",$memb); 
+if($message == "ارسالی" && $memb > 1000 && $type == "supergroup" && in_array($chatId,$gpid)){
+sendmark($chatId, "عدد ارسالی 👥🔹  : " . "*$memb*" . "\nنهایتنا 💯 ",$memb); 
 }
-elseif($message == "عدد الرسائل" && $type == "private"){
-	sendMessage($chatId, "عذرا 🍂 هذا الامر في المجموعات فقط 👥❇️");
+elseif($message == "عدد ارسالی" && $type == "private"){
+	sendMessage($chatId, "با عرض پوژش 👥❇️");
 }
 
-if($message == "عدد الرسائل" && $memb < 1000 && $type == "supergroup" && in_array($chatId,$gpid)){
-sendmark($chatId, "عدد 📉 رسائل المجموعة 👥🔹  : " . "*$memb*" . "\nللاسف 💎 مجموعتك غير متفاعلة 💭",$memb); 
+if($message == "عدد ارسالی" && $memb < 1000 && $type == "supergroup" && in_array($chatId,$gpid)){
+sendmark($chatId, "عدد🔹  : " . "*$memb*" . "\ndone💭",$memb); 
 }
 
 
 if($dp && in_array($chatId,$gpid)){
-sendmark($chatId, "تم ✅ ازالة صورة المجموعة 🎑 بواسطت  : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "عکس حذف ✅ گروه 🎑 Boistt : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($np && in_array($chatId,$gpid)){
-sendmark($chatId, "قام 👤 بتغير صورة المجموعة 🎑❕ :  " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "👤 تغییر تصویر گروه 🎑❕ :  " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($nt && in_array($chatId,$gpid)){
-sendmark($chatId, "قام بتغير ❕اسم المجموعة 👥 : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "تعقیر اسم گروه : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($gif and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال الصور المتحركة 🎆🔒 : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوعه 🚫 ارسال تصاویر متحرک 🎆🔒 : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($pin and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 عمل التثبيت 📍🔒  " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوعه 🚫 کار نصب و راه اندازی 📍🔒  " . "[$nam](https://t.me/$user)",$memb);
 }
 
 
 
 if($fwd && !$photo and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 عمل التوجيه 🔄🔒 : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوعه 🚫 بخشنامه کار🔄🔒 : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 
 if($link and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال الروابط ⚙🔒 : " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوعه 🚫 ارسال ⚙🔒 لینک : " . "[$nam](https://t.me/$user)",$memb);
 }
 
 if($audio and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال الصوتيات 📣🔒  " . "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "ممنوع ارسال تصویر 📣🔒  " . "[$nam](https://t.me/$user)",$memb);
 }
 
 
 if($photo and $for != $sudo_id && $type == "supergroup"){
-sendmark($chatId, "ممنوع 🚫 ارسال الصور 🎆🔒   ". "[$nam](https://t.me/$user)",$memb);
+sendmark($chatId, "done🎆🔒   ". "[$nam](https://t.me/$user)",$memb);
 }
 
 
 if($test and $for != $sudo_id && $type == "supergroup" && in_array($chatId,$gpid) && !in_array($for,$ids)){
-sendmark($chatId, "ممنوع 🚫 ارسال جهات الاتصال 📱🔒  : " . "[$nam](https://telegram.me/$user)",$memb);
+sendmark($chatId, "done 📱🔒  : " . "[$nam](https://telegram.me/$user)",$memb);
 }
 
 if ($left && in_array($chatId,$gpid)){
-sendMessage($chatId, "وداعا عزيز 📩");
+sendMessage($chatId, "done 📩");
 }
 
 if ($sticker and $for != $sudo_id && $type == "supergroup" && !in_array($for,$ids) && in_array($chatId,$gpid)){
-sendmark($chatId, "ممنوع 🚫 ارسال الملصقات 🔆🔒 : " . "[$nam](https://t.me/$user)", $memb); // OmarReal
+sendmark($chatId, "done : " . "[$nam](https://t.me/$user)", $memb); // OmarReal
 }
 
 if ($message == "/start" && $type == "private"){
-sendmark($chatId, "اهلا بك 💡 بك يا : [$nam](https://t.me/$user)" . "\nاضفني 💭 الى مجموعتك 👥 " . "\nوسوف اقوم بل تحذير 📵 " . "\n" . "[تابع جديدنا ☘](https://telegram.me/set_web)" ,$memb);
+sendmark($chatId, "سلام : [$nam](https://t.me/$user)" . "\nسورس ربات x 👥 " . "\nاپن شده توسط مگا ریبورن 📵 " . "\n" . "[@boydev ☘](https://telegram.me/botreborn_ch)" ,$memb);
 }
 
 // code by omar
@@ -269,19 +269,19 @@ if ($message === "/id" && !$replay && in_array($chatId,$gpid)){
 	,$memb );
 }
 
-// This File By @Omar_Real
+// This File By @boydev
 /*
 if ($message == "/id"){
-	sendMessage($chatId, "اهلا 👋 يا @" . $user . "\n" . "لقدم تم ارسال 📩 طلبك في الخاص 💡\n تفقد الخاص ارسل 📪 رسالة للبوت اذا لم تتلقى شيئا 💸");
+	sendMessage($chatId, "سلام @" . $user . "\n" . "پا 📩 در درخواست خود را ارسال شی 💡\n شوارسال از دست دادن 📪 پیام خود را به ربات اگر آن را هر چیزی دریافت نمی 💸");
 }
 */
 $time = time() + (979 * 11 + 1 + 30);
 if ($message ==  'الوقت' && in_array($chatId,$gpid)){
-sendmark($chatId, "🕛 البلد : العراق" . "\n" . "🕛 الساعة : " . date('g', $time) . "\n" . "🕛 الدقيقة : " . date('i', $time) ,$memb);
+sendmark($chatId, "🕛 ایران" . "\n" . "🕛 ساعت : " . date('g', $time) . "\n" . "🕛 دقیقه : " . date('i', $time) ,$memb);
 }
 
 if ($message == "التاريخ" && in_array($chatId,$gpid)){
-sendmark($chatId, "📆 البلد : العراق \n" . "📆  السنة : " . date("Y") . "\n" . "📆 الشهر : " . date("n") . "\n" . "📆 اليوم :" . date("j"), $memb);	
+sendmark($chatId, "📆 ایران : ایران \n" . "📆  سال : " . date("Y") . "\n" . "📆 شهر : " . date("n") . "\n" . "📆 امروز :" . date("j"), $memb);	
 }
 date_default_timezone_set("Asia/Baghdad");
 
@@ -289,7 +289,7 @@ if ($message == "/kickme" && $for != $sudo_id && in_array($chatId,$gpid)){
 kick($chatId , $for);
 }
 if ($message == "/kickme" && $for != $sudo_id && in_array($chatId,$gpid)){
-sendmark($chatId, "وداعا عزيزي 🌝☘ : " . "[$nam](https://t.me/$user",$memb);
+sendmark($chatId, "خداحافظ عزیز 🌝☘ : " . "[$nam](https://t.me/$user",$memb);
 }
 
 if ($message == "/kick" && $for == $sudo_id && in_array($chatId,$gpid)){
@@ -301,15 +301,15 @@ rekick($chatId,$for,$replay);
 }
 
 if($replay && $message == "/kick" && $for == !in_array($for,$ids) && $for != $sudo_id){
-sendmark ($chatId, "للمشرفين فقط 👥❗️: " ."[$nam](https://t.me/$user)" , $memb);
+sendmark ($chatId, "فقط ناظران: " ."[$nam](https://t.me/$user)" , $memb);
 }
 
 if ($replay && $message == "/kick" && $for == $sudo_id && in_array($chatId,$gpid)){
-sendmark($chatId, "تم ✅ طرد العضو 👤 : " . "[$replay_name](https://t.me/$replay_user)", $memb);	
+sendmark($chatId, "اخراج شد کاربر به دلیل خلاف 👤 : " . "[$replay_name](https://t.me/$replay_user)", $memb);	
 }
 
 if ($replay && $message == "/kick" && $for == in_array($for,$ids)){
-sendmark($chatId, "تم ✅ طرد العضو 👤 : " . "[$replay_name](https://t.me/$replay_user)",$memb);
+sendmark($chatId, "اخراج شد کاربر به دلیل خلاف : " . "[$replay_name](https://t.me/$replay_user)",$memb);
 }
 	function forwardMessage ($group, $chatId, $memb){
 		   $url = $GLOBALS[website].'/forwardMessage?chat_id='.$group.'&from_chat_id='.$chatId.'&message_id='.$memb;
